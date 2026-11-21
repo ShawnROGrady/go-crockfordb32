@@ -1,5 +1,7 @@
 # go-crockfordb32
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/ShawnROGrady/go-crockfordb32.svg)](https://pkg.go.dev/github.com/ShawnROGrady/go-crockfordb32)
+
 A Go implementation of [Douglas Crockford's Base32 encoding](https://www.crockford.com/base32.html).
 
 ## Overview
