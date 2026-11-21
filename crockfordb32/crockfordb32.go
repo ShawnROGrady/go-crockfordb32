@@ -1,8 +1,8 @@
 // Package crockfordb32 implements a base32 encoding using the alphabet
 // designed by Douglas Crockford.
 //
-// With the exception of the `Encoding` function, all of the exported functions
-// in this package correspond to the methods on the base32 encoding.
+// With the exception of the [Encoding] function, all of the exported functions
+// in this package correspond to the methods on the [base32.Encoding] type.
 package crockfordb32
 
 import "encoding/base32"
@@ -16,6 +16,9 @@ func Encoding() *base32.Encoding {
 
 var enc = Encoding()
 
+// CorruptInputError is an alias for [base32.CorruptInputError], which is
+// returned when decoding malformed input. This re-export is just for
+// convenience.
 type CorruptInputError = base32.CorruptInputError
 
 // AppendDecode appends the Crockford base32 decoded form of src to dst and
@@ -31,15 +34,15 @@ func AppendEncode(dst, src []byte) []byte {
 }
 
 // Decode decodes src using Crockford base32 into dst. It writes at most
-// DecodedLen(len(src)) bytes to dst and returns the number of bytes written.
-// If src contains invalid characters, it returns a CorruptInputError.
+// [DecodedLen](len(src)) bytes to dst and returns the number of bytes written.
+// If src contains invalid characters, it returns a [CorruptInputError].
 func Decode(dst, src []byte) (n int, err error) {
 	return enc.Decode(dst, src)
 }
 
 // DecodeString decodes a Crockford base32 encoded string and returns the
 // decoded bytes. If s contains invalid characters, it returns a
-// CorruptInputError.
+// [CorruptInputError].
 func DecodeString(s string) ([]byte, error) {
 	return enc.DecodeString(s)
 }
@@ -50,7 +53,7 @@ func DecodedLen(n int) int {
 	return enc.DecodedLen(n)
 }
 
-// Encode encodes src using Crockford base32, writing EncodedLen(len(src))
+// Encode encodes src using Crockford base32, writing [EncodedLen](len(src))
 // bytes to dst. The caller must ensure dst is large enough to hold the output.
 func Encode(dst, src []byte) {
 	enc.Encode(dst, src)
